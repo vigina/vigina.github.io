@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>面试题-闭包 | vigina</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="js文件自上而下执行，变量提升，函数定义1.1234567891011121314// 变量提升 var a,b=AAAFFF111;console.log(a);// undefinedvar a = 10;function b()&amp;#123;  // 私有作用域（形参赋值 变量提升）  // var a;  if (!a)&amp;#123;// !undefined =&amp;gt; true    va">
+<meta name="keywords" content="面试题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试题-闭包">
+<meta property="og:url" content="http://yoursite.com/2017/05/23/面试题-闭包/index.html">
+<meta property="og:site_name" content="vigina">
+<meta property="og:description" content="js文件自上而下执行，变量提升，函数定义1.1234567891011121314// 变量提升 var a,b=AAAFFF111;console.log(a);// undefinedvar a = 10;function b()&amp;#123;  // 私有作用域（形参赋值 变量提升）  // var a;  if (!a)&amp;#123;// !undefined =&amp;gt; true    va">
+<meta property="og:locale" content="chinese">
+<meta property="og:updated_time" content="2019-06-07T01:35:34.768Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试题-闭包">
+<meta name="twitter:description" content="js文件自上而下执行，变量提升，函数定义1.1234567891011121314// 变量提升 var a,b=AAAFFF111;console.log(a);// undefinedvar a = 10;function b()&amp;#123;  // 私有作用域（形参赋值 变量提升）  // var a;  if (!a)&amp;#123;// !undefined =&amp;gt; true    va">
+  
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+</html>
+<body style="
+
+
+  background-color: #eff0f6
+
+">
+  <div id="container">
+    <nav id="nav">
+  <header class="header">
+    <a href="/" class="title">It is Me</a>
+  </header>
+  <div class="ctnWrap">
+    <div class="icons">
+      
+    </div>
+    <div class="menu">
+      
+        
+            <a href="/" class="nav-menu ">HOME</a>
+          
+        
+            <a href="/archives" class="nav-menu ">ARCHIVE</a>
+          
+        
+            <a href="/about" class="nav-menu ">ABOUT</a>
+          
+        
+            <a href="/categories" class="nav-menu ">CATEGORIES</a>
+          
+        
+            <a href="/tags" class="nav-menu ">TAGS</a>
+          
+        
+      
+    </div>
+  </div>
+</nav>
+    <div id="main"><section class="article">
+  <h2 class="title">面试题-闭包</h2>
+  <p class="sub">May 23, 2017</p>
+  <article class="content">
+    <h3 id="js文件自上而下执行，变量提升，函数定义"><a href="#js文件自上而下执行，变量提升，函数定义" class="headerlink" title="js文件自上而下执行，变量提升，函数定义"></a>js文件自上而下执行，变量提升，函数定义</h3><p>1.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 变量提升 var a,b=AAAFFF111;</span></span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 私有作用域（形参赋值 变量提升）</span></span><br><span class="line">  <span class="comment">// var a;</span></span><br><span class="line">  <span class="keyword">if</span> (!a)&#123;<span class="comment">// !undefined =&gt; true</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">11</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(a) <span class="comment">// 11</span></span><br><span class="line">&#125;</span><br><span class="line">b();</span><br><span class="line"><span class="comment">// 私有作用域，在函数被调用完后，被销毁</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 全局 10</span></span><br></pre></td></tr></table></figure></p>
+<p>2.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 没有变量提升，直接报错</span></span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line">a = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!a)&#123;</span><br><span class="line">    a = <span class="number">10</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br></pre></td></tr></table></figure></p>
+<p>3.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 变量提升var n，c,函数定义：a = AAAFFF111;</span></span><br><span class="line"><span class="built_in">console</span>.log(n);<span class="comment">// 声明未赋值 undefined</span></span><br><span class="line"><span class="keyword">var</span> n = <span class="number">100</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 被调用生成私有作用域，形参赋值，变量提升</span></span><br><span class="line">  <span class="comment">// var n,b = BBBFFF111</span></span><br><span class="line">  <span class="keyword">var</span> n = <span class="number">88</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// b被调用，生成私有作用域</span></span><br><span class="line">    n++;<span class="comment">// n为上级作用域的</span></span><br><span class="line">    <span class="built_in">console</span>.log(n);<span class="comment">// 89</span></span><br><span class="line">  &#125;</span><br><span class="line">  b();</span><br><span class="line">  <span class="built_in">console</span>.log(n); <span class="comment">// 89</span></span><br><span class="line">  <span class="keyword">return</span> b; <span class="comment">// -&gt;BBBFFF111</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = a();<span class="comment">// c = BBBFFF111</span></span><br><span class="line">c();</span><br><span class="line"><span class="built_in">console</span>.log(n) <span class="comment">// 全局的 100</span></span><br></pre></td></tr></table></figure></p>
+<p>4.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 变量提升var n，c,函数定义：a = AAAFFF111;</span></span><br><span class="line"><span class="built_in">console</span>.log(n);<span class="comment">// 声明未赋值 undefined</span></span><br><span class="line"><span class="keyword">var</span> n = <span class="number">100</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 被调用生成私有作用域，形参赋值，变量提升</span></span><br><span class="line">  <span class="comment">// var n,b = BBBFFF111</span></span><br><span class="line">  <span class="keyword">var</span> n = <span class="number">88</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// b被调用，生成私有作用域</span></span><br><span class="line">    n++;<span class="comment">// n为上级作用域的</span></span><br><span class="line">    <span class="built_in">console</span>.log(n);<span class="comment">// 89</span></span><br><span class="line">  &#125;</span><br><span class="line">  b();</span><br><span class="line">  <span class="built_in">console</span>.log(n); <span class="comment">// 89</span></span><br><span class="line">  <span class="keyword">return</span> b; <span class="comment">// -&gt;BBBFFF111</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = a();<span class="comment">// c = BBBFFF111</span></span><br><span class="line">c();</span><br><span class="line"><span class="built_in">console</span>.log(n) <span class="comment">// 全局的 100</span></span><br></pre></td></tr></table></figure></p>
+
+  </article>
+  <footer class="f-cf">
+    
+      <a href="/2017/05/24/面试题/" class="link f-fl">⟵常见面试题</a>
+    
+    
+  </footer>
+</section></div>
+    <footer id="footer" class="f-cf">
+  
+  
+  <span class="copyright"></span>
+</footer>
+  </div>
+</body>
+</html>
